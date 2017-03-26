@@ -8,7 +8,9 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'), // Подключаем библиотеку для работы с изображениями
     csso = require('gulp-csso'), // Для минификации css
     pngquant = require('imagemin-pngquant'), // Подключаем библиотеку для работы с png
-    cache = require('gulp-cache'); // Подключаем библиотеку кеширования
+    cache = require('gulp-cache'), // Подключаем библиотеку кеширования
+    sourcemaps = require("gulp-sourcemaps"),
+    babel = require("gulp-babel");;
 
 gulp.task('sass', function() {
     return gulp.src('app/sass/**/*.sass') // Берем источник
@@ -29,9 +31,12 @@ gulp.task('browser-sync', function(){
 
 gulp.task('scripts', function(){
     return gulp.src([ // Берем все необходимые библиотеки
-        'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js' // Берем Magnific Popup
+        'app/libs/**/*.js'
         ])
-        .pipe(concat('libs.min.js')) // Собираем их в кучу в новом файле libs.min.js
+        .pipe(sourcemaps.init())
+        .pipe(babel())
+        .pipe(concat("all.min.js"))
+        .pipe(sourcemaps.write("."))
         .pipe(uglify()) // Сжимаем JS файл
         .pipe(gulp.dest('app/js')); // Выгружаем в папку app/js
 });
