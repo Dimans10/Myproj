@@ -1,0 +1,708 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,400,700');
+
+*
+    margin: 0
+    padding: 0
+    font-family: 'Raleway', sans-serif;
+
+
+.header
+    background-image: url(../img/background_header.png)
+    background-repeat: no-repeat
+    background-size: 100% 100%
+    min-height: 600px
+
+.header .menu
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+    flex-wrap: wrap
+    align-items: center
+    font-size: 14px
+    font-weight: 700
+    
+.header .menu ul
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    min-height: 100px
+    list-style-type: none
+    
+.header .menu ul li
+    margin-right: 20px
+  
+.logotip
+    display: flex
+    align-items: center
+    
+.header .logo 
+    margin-right: 5px
+    width: 108px
+    height: 27px
+    background-image: url(../img/logo.png)
+    background-repeat: no-repeat
+    display: inline-block    
+
+.header a
+    text-decoration: none
+    color: white
+
+
+.slider
+    display: block
+    min-height: 400px
+    text-align: center
+    position: relative
+
+.slider::before
+    content: ""
+    background: url(../img/left_arrow.png)
+    display: block
+    height: 53px
+    width: 27px
+    position: absolute
+    left: 5%
+    top: calc(50% - 53px)
+    
+.slider::after
+    content: ""
+    background: url(../img/right_arrow.png)
+    display: block
+    height: 53px
+    width: 27px
+    position: absolute
+    right: 5%
+    top: calc(50% - 53px)
+
+.learnmore
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 150px
+    
+.slider_info
+    color: white
+    position: absolute
+    left: 0
+    right: 0
+    top: 100px
+    
+.slider_info h2
+    font-size: 35px
+    font-weight: 100
+    line-height: 60px
+
+.slider_info h5
+    font-size: 15px
+    font-weight: 300
+    
+    
+    
+.slider_menu
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 80px
+    
+.slider .button
+    font-size: 14px
+    font-weight: 500
+    border-radius: 20px
+    border-width: 2px
+    border-style: solid
+    padding: 10px 40px
+    background-color: rgba(0,0,0,0)
+
+.title
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    align-items: center
+    justify-content: flex-end
+    background-color: rgba(255, 255, 255, 0)
+    
+.title h1
+    font-family: Raleway
+    color:  #576671
+    font-size: 60px
+    font-weight: 200
+    line-height: 96px
+    
+.title h4
+    font-family: ProximaNova
+    color:  #87949e
+    font-size: 18px
+    font-weight: 400
+    line-height: 100px
+
+.title img
+    width: 30px
+    
+.info
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+    align-items: flex-end
+
+.info .raket
+    background-image: url("../img/raket.png")
+    background-repeat: no-repeat
+    height: 146px
+    background-position: center
+    
+.info .raket:hover
+    background-image: url("../img/raket_na.png") 
+
+.info .atom
+    background-image: url("../img/atom_na.png")
+    background-repeat: no-repeat
+    height: 146px
+    background-position: center
+
+.info .atom:hover
+    background-image: url("../img/atom2.png")
+    
+.info .activity
+    background-image: url("../img/activity_na.png")
+    background-repeat: no-repeat
+    height: 146px
+    background-position: center
+
+.info .activity:hover
+    background-image: url("../img/activity2.png")
+
+.info .study
+    background-image: url("../img/study_na.png")
+    background-repeat: no-repeat
+    height: 146px
+    background-position: center
+    
+.info .study:hover
+    background-image: url("../img/study2.png")
+
+.s
+    width: 220px
+    text-align: center
+
+.info h3
+    font-family: Raleway;
+    color:  #000000;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 80px;
+    
+.info h5
+    font-family: ProximaNova;
+    color:  #87949e;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    
+.about a, button_lorem
+    display: inline-block
+    border-radius: 20px
+    background-color: #17daa3
+    padding: 10px 40px
+    color: white
+    
+.lorem
+    text-align: center
+    margin: 80px 0
+    
+.article
+    display: flex
+    flex-wrap: wrap
+    background-color: rgb(249, 249, 250)
+    align-items: center
+    padding-bottom: 50px
+    
+
+.tit:first-child
+    margin: auto
+    
+.clause 
+    width: 50%
+    text-align: left
+    
+.clause h2
+    font-family: Raleway
+    color:  #576671
+    font-size: 30px
+    font-weight: 200
+    line-height: 96px
+
+.clause p
+    font-family: ProximaNova
+    color:  #87949e
+    font-size: 16px
+    font-weight: 400
+    line-height: 26px
+    width: 70%
+    
+.clause a
+    display: inline-block
+    text-align: center
+    border-radius: 20px
+    background-color: #17daa3
+    padding: 10px 40px
+    margin-top: 50px
+    color: white
+
+.clause2 
+    width: 50%
+    text-align: left
+    
+.clause2 h2
+    margin-left: 25%
+    font-family: Raleway
+    color:  #576671
+    font-size: 30px
+    font-weight: 200
+    line-height: 96px
+
+.clause2 p
+    margin-left: 25%
+    font-family: ProximaNova
+    color:  #87949e
+    font-size: 16px
+    font-weight: 400
+    line-height: 26px
+    width: 70%
+    
+.clause2 a
+    margin-left: 25%
+    display: inline-block
+    text-align: center
+    border-radius: 20px
+    background-color: #17daa3
+    padding: 10px 40px
+    margin-top: 50px
+    color: white
+    
+    
+.photo
+    width: 400px
+    
+.articWhite
+    display: flex
+    flex-wrap: wrap
+    background-color: white
+    align-items: center
+    padding-bottom: 50px
+
+.black     
+    background-image: url(../img/Work.png)   
+    background-repeat: no-repeat
+    background-size: 100% 100%
+    min-height: 500px
+
+.slider_black
+    display: block
+    min-height: 400px
+    text-align: center
+    position: relative
+
+.face
+    margin: auto
+    position: absolute
+    left: 0
+    right: 0
+    top: 120px
+
+.slider_black p
+    margin: auto
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 140px
+    color:  #ffffff;
+    font-size: 20px;
+    font-weight: 300;
+
+.slider_black h6
+    margin: auto
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 100px
+    color:  #ffffff;
+    font-size: 12px;
+    font-weight: 200;
+    
+.slider_black::before
+    content: ""
+    background: url(../img/left_arrow.png)
+    display: block
+    height: 53px
+    width: 27px
+    position: absolute
+    left: 5%
+    top: calc(50% - 53px)
+    
+.slider_black::after
+    content: ""
+    background: url(../img/right_arrow.png)
+    display: block
+    height: 53px
+    width: 27px
+    position: absolute
+    right: 5%
+    top: calc(50% - 53px)
+    
+.slide_menu
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 30px
+
+.services
+    background-color: rgba(249, 249, 250, 255)
+
+.about_service
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+    padding-bottom: 100px
+    padding-top: 80px
+
+
+.about_service .menu
+    width: 500px
+
+.fon     
+    background-repeat: no-repeat
+    background-position: center left
+    
+.ss1
+    background-image: url("../img/portfolio.png")
+
+.ss2
+    background-image: url("../img/design.png")
+    
+.ss3
+    background-image: url("../img/branding.png")
+    
+.ss4
+    background-image: url("../img/developing.png")
+    
+.about_service h3
+    font-family: Raleway
+    color:  #576671
+    font-size: 32px
+    font-weight: 200
+    line-height: 96px
+    text-align: left
+    padding-left: 70px
+    
+.about_service p
+    font-family: ProximaNova
+    color:  #87949e
+    font-size: 16px
+    font-weight: 400
+    line-height: 36px
+    text-align: left
+    margin-left: 70px
+    
+.team
+    background-color: rgba(255, 255, 255, 0)
+
+.team .personal
+    display: flex
+    flex-flow: row wrap
+    align-content: flex-end
+    padding-top: 50px
+
+.persona:nth-child(2n)
+    width: 20%
+    min-height: 100px
+    padding-top: 80px
+    background-color: rgb(239, 239, 239)
+    
+.persona:nth-child(2n+1)
+    width: 20%
+    min-height: 100px
+    padding-top: 80px
+    background-color: rgb(228, 228, 228)
+    
+.persona:hover
+    background-color: rgb(45, 221, 172)
+    
+.persona p
+    font-family: Raleway
+    color:  #ffffff
+    font-size: 35px
+    text-align: center
+
+.pricing
+    background-color: rgb(249, 249, 250)
+
+.purches_info
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+    padding-bottom: 70px
+    
+    
+.purches_info h1
+    font-family: Raleway
+    color:  #17daa3
+    font-size: 52px
+    font-weight: 200
+    line-height: 96px
+    text-align: left
+    
+.purches_info h6    
+    font-family: ProximaNova
+    color:  #87949e
+    font-size: 14px
+    font-weight: 400
+    line-height: 48px
+    text-align: left
+
+.purches_info p
+    font-family: ProximaNova
+    color:  #87949e
+    font-size: 18px
+    font-weight: 400
+    line-height: 36px
+    text-align: left
+    
+.purch
+    width: 17%
+    min-width: 210px
+    background-color: rgb(255, 255, 255)
+    margin-right: 20px
+    border-radius: 5px
+
+.purch_wrapper
+    padding: 0 20px
+        
+.px1
+    background: #c0c0c0
+    height: 1px
+    margin: 25px auto
+    width: 100%
+    
+.buy
+    display: block
+    background-color: #17daa3
+    font-weight: 500
+    padding: 10px 0
+    border-radius: 0 0 5px 5px
+    
+.buy span
+    padding-left: 20px
+    font-family: ProximaNova
+    color:  #ffffff
+    font-size: 14px
+    letter-spacing: 5px;
+
+.buy .buying
+    padding-right: 20px
+    
+.articleMap
+    display: flex
+    flex-wrap: wrap
+    background-color: rgb(255, 255, 255)
+    align-items: center
+    justify-content:  center
+    padding-bottom: 50px
+    padding-top: 50px
+
+.blog .maper
+    background-image: url(../img/maybe_map.png)
+    background-repeat: no-repeat
+    background-size: 100% 100%
+    height: 249px
+    width: 50%
+    
+.blog .black
+    background-image: url(../img/blog.png)
+    background-repeat: no-repeat
+    background-size: 100% 100%
+    min-height: 530px
+
+.black h1
+    color: white
+    text-align: center
+    padding-top: 15%
+    font-weight: 200
+    
+.bloghref
+    text-align: center
+    margin-top: 80px
+    
+.footer
+    background-image: url(../img/SmartObject.png)
+    background-repeat: no-repeat
+    background-position: center top
+    min-height: 500px
+
+.footer .menu
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+    flex-wrap: wrap
+    align-items: center
+    font-size: 14px
+    font-weight: 700
+    
+.footer .menu ul
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    min-height: 100px
+    list-style-type: none
+    
+.footer .menu ul li
+    margin-right: 20px
+  
+a
+    text-decoration: none;
+    color: rgb(209, 214, 217)
+.logotip
+    display: flex
+    align-items: center
+
+.rights
+    color: #87949e
+    
+.footer .logo 
+    margin-right: 5px
+    width: 26px
+    height: 26px
+    background-image: url(../img/iconA.png)
+    background-repeat: no-repeat
+    display: inline-block
+    
+    
+@media (max-width: 480px)
+    .header
+        min-width: 320px
+    
+    .header .menu
+        justify-content: center
+        
+    .header .menu
+        min-width: 320px
+    
+    .header .menu ul li
+        margin-right: 14px
+    
+    .header .slider_info
+        min-width: 320px
+        
+    .header .slider_info h2
+        font-size: 30px
+        line-height: 30px
+        padding-bottom: 10px
+        width: 77%
+        padding-left: 13%
+        
+    .header .slider_info h5    
+        width: 77%
+        padding-left: 13%
+        
+    .about h4, .services h4, .team h4, .pricing h4
+        line-height: 30px
+        margin-left: 10%
+        
+    .about h1, .services h1, .team h1, .pricing h1
+        margin: 0;
+        font-size: 40px
+        
+    .about h5
+        font-size: 18px
+        
+    .photo
+        margin-left: 20%
+        width: 55%
+        
+    .work .clause, .blog .clause
+        width: 100%
+    
+    .clause a
+        margin-left: 10%
+
+        
+    .clause
+        width: 100%
+        
+    .clause h2
+        margin-left: 10%
+        font-size: 24px
+        
+        
+    .clause p
+        font-size: 18px
+        margin-left: 10%
+        width: 90%
+    
+    .clause2
+        width: 100%
+    
+    .clause2 p, .clause2 a    
+        margin-left: 20%
+        
+    .clause2 h2
+        margin: 20%
+        line-height: 10px
+        
+    .about_service p
+        font-size: 18px
+    
+    .slider_black p
+        width: 70%
+        bottom: 113px
+        
+    .team .persona p
+        font-size: 25px
+    .team .persona:nth-child(2n), .team .persona:nth-child(2n+1)
+        width: 50%
+    
+    .blog .articleMap
+        padding-top: 0px
+        
+    .blog .maper
+        width: 80%
+        
+    .black h1
+        margin-left: 3%
+        font-size: 25px
+
+@media (max-width: 350px)
+    .header .menu ul li
+        margin-right: 9px
+        
+@media (min-width: 481px) and (max-width: 1023px)
+    .photo
+        width: 35%
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
