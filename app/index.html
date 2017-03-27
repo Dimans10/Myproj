@@ -13,16 +13,23 @@
              <div class="logotip">
                  <span class="logo"></span>
              </div>
-              <div class="list">
-                <ul>
-                <li><a href ="#">HOME</a></li>
-                <li><a href ="#about">ABOUT</a></li>
-                <li><a href ="#work">WORK</a></li>
-                <li><a href ="#services">SERVICES</a></li>
-                <li><a href ="#blog">BLOG</a></li>
-                <li><a href ="#"><img src="./img/search.png" alt=""></a></li>
-            </ul>
-              </div>
+               <div class="hamburger">
+                   <div class="burger-container">
+                    <div id="burger">
+                        <div class="bar topBar"></div>
+                        <div class="bar btmBar"></div>
+                    </div>
+                   </div>
+                    <ul class="titleul">
+                    <li class="titleul-item"><a href ="#">HOME</a></li>
+                    <li class="titleul-item"><a href ="#about">ABOUT</a></li>
+                    <li class="titleul-item"><a href ="#work">WORK</a></li>
+                    <li class="titleul-item"><a href ="#services">SERVICES</a></li>
+                    <li class="titleul-item"><a href ="#blog">BLOG</a></li>
+                    <li class="titleul-item"><a href ="#"><img src="./img/search.png" alt=""></a></li>
+                    </ul>
+               </div>
+                
            </div>
            
            <div class="slider">
@@ -275,5 +282,14 @@
            </div>
         </footer>
     </div>
+    <script>
+    (function(){
+    var burger = document.querySelector('.burger-container'),
+        hamburger = document.querySelector('.hamburger');
+    
+    burger.onclick = function() {
+        hamburger.classList.toggle('titleul-opened');
+    }
+}());</script>
 </body>
 </html>
