@@ -20,7 +20,9 @@
     "gulp-cache": "^0.4.6",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^3.0.0",
+    "gulp-iife": "^0.3.0",
     "gulp-imagemin": "^3.1.1",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-uglifyjs": "^0.6.2",
     "imagemin-pngquant": "^5.0.0"

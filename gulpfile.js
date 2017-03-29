@@ -10,14 +10,20 @@ var gulp = require('gulp'),
     pngquant = require('imagemin-pngquant'), // Подключаем библиотеку для работы с png
     cache = require('gulp-cache'), // Подключаем библиотеку кеширования
     sourcemaps = require("gulp-sourcemaps"),
-    babel = require("gulp-babel");;
+    babel = require("gulp-babel"),
+    rename = require("gulp-rename"),
+    iife = require("gulp-iife");
 
 gulp.task('sass', function() {
     return gulp.src('app/sass/**/*.sass') // Берем источник
+        .pipe(concat('main.sass'))// Собираем их в кучу в новом файле main.min.css        
         .pipe(sass()) // Преобразуем Sass в CSS посредством //gulp-sass
         .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
+        .pipe(csso())
+        .pipe(rename('main.min.css'))
         .pipe(gulp.dest('app/css')) // Выгружаем результата // в папку app/css
-        .pipe(browserSync.reload({stream: true})) // Обновляем CSS на странице при изменении
+    .pipe(browserSync.reload({stream: true})) 
+       
 });
 
 gulp.task('browser-sync', function(){
@@ -33,20 +39,20 @@ gulp.task('scripts', function(){
     return gulp.src([ // Берем все необходимые библиотеки
         'app/libs/**/*.js'
         ])
-        .pipe(sourcemaps.init())
+        .pipe(iife())
         .pipe(babel())
         .pipe(concat("all.min.js"))
-        .pipe(sourcemaps.write("."))
         .pipe(uglify()) // Сжимаем JS файл
         .pipe(gulp.dest('app/js')); // Выгружаем в папку app/js
 });
 
-gulp.task('css', function() {
-    return gulp.src('app/css/**/*.css')
-        .pipe(concat('main.min.css')) // Собираем их в кучу в новом файле main.min.css
-        .pipe(csso()) // Сжимаем JS файл
-        .pipe(gulp.dest('app/css')); // Выгружаем в папку app/css
-});
+//gulp.task('css',['sass'] , function() {
+//    return gulp.src('app/css/*.css')
+//        .pipe(concat('main.min.css')) // Собираем их в кучу в новом файле main.min.css
+//        .pipe(csso()) // Сжимаем JS файл
+//        .pipe(gulp.dest('app/css')) // Выгружаем в папку app/css
+//     .pipe(browserSync.reload({stream: true})) // Обновляем CSS на странице при изменении; 
+//});
 
 gulp.task('clean', function() {
     return del.sync('dist'); // Удаляем папку dist перед сборкой
@@ -63,13 +69,13 @@ gulp.task('img', function() {
         .pipe(gulp.dest('dist/img')); // Выгружаем на продакшен
 });
 
-gulp.task('watch', ['browser-sync', 'sass', 'scripts', 'css'], function(){
+gulp.task('watch', ['browser-sync', 'sass', 'scripts'], function(){
     gulp.watch('app/sass/**/*.sass', ['sass']);
     gulp.watch('app/*.html', browserSync.reload);
     gulp.watch('app/js/**/*.js', browserSync.reload);
 });
 
-gulp.task('build', ['clean', 'img' ,'sass', 'scripts', 'css'], function() {
+gulp.task('build', ['clean', 'img' ,'sass', 'scripts'], function() {
 
     var buildCss = gulp.src([ // Переносим CSS стили в продакшен
         'app/css/main.min.css'

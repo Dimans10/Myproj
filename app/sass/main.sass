@@ -514,7 +514,7 @@
 .blog .maper
     background-image: url(../img/maybe_map.png)
     background-repeat: no-repeat
-    background-size: 100% 100%
+    background-size: auto 249px
     height: 249px
     width: 50%
     
@@ -665,7 +665,9 @@ a
         padding-top: 0px
         
     .blog .maper
+        margin-top: 20%
         width: 80%
+        background-size: 100% auto
         
     .black h1
         margin-left: 3%
@@ -679,7 +681,7 @@ a
     .photo
         width: 35%
         
-@media (max-width: 500px)
+@media (max-width: 550px)
     .hamburger
       position: fixed
       display: block
@@ -716,7 +718,7 @@ a
       height: 8px
       position: relative
       display: block
-      margin: -4px auto 0
+      margin: -2px auto 0
       top: 50%
     
     .hamburger .burger-container #burger .bar 
@@ -794,60 +796,40 @@ a
     .hamburger.titleul-opened 
       height: 100%
       background-color: #000
-      -webkit-transition: all 0.3s ease-in, background 0.5s ease-in
       transition: all 0.3s ease-in, background 0.5s ease-in;
-      -webkit-transition-delay: 0.25s
       transition-delay: 0.25s
 
     .hamburger.titleul-opened .burger-container 
-      -webkit-transform: rotate(90deg)
       transform: rotate(90deg)
     
     .hamburger.titleul-opened .burger-container #burger .bar 
-      -webkit-transition: all 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99)
       transition: all 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99)
-      -webkit-transition-delay: 0.2s
       transition-delay: 0.2s
 
     .hamburger.titleul-opened .burger-container #burger .bar.topBar 
-      -webkit-transform: translateY(4px) rotate(45deg)
       transform: translateY(4px) rotate(45deg)
 
     .hamburger.titleul-opened .burger-container #burger .bar.btmBar 
-      -webkit-transform: translateY(3px) rotate(-45deg)
       transform: translateY(3px) rotate(-45deg)
 
     .hamburger.titleul-opened ul.titleul li.titleul-item 
-      -webkit-transform: scale(1) translateY(0px)
       transform: scale(1) translateY(0px)
       opacity: 1
 
     .hamburger.titleul-opened ul.titleul li.titleul-item:nth-child(1) 
-      -webkit-transition-delay: 0.27s
       transition-delay: 0.27s
 
     .hamburger.titleul-opened ul.titleul li.titleul-item:nth-child(2) 
-      -webkit-transition-delay: 0.34s
       transition-delay: 0.34s
     
     .hamburger.titleul-opened ul.titleul li.titleul-item:nth-child(3) 
-      -webkit-transition-delay: 0.41s
       transition-delay: 0.41s
 
     .hamburger.titleul-opened ul.titleul li.titleul-item:nth-child(4) 
-      -webkit-transition-delay: 0.48s
       transition-delay: 0.48s
 
     .hamburger.titleul-opened ul.titleul li.titleul-item:nth-child(5) 
-      -webkit-transition-delay: 0.55s
       transition-delay: 0.55s
 
     .hamburger.titleul-opened ul.titleul li.titleul-item:nth-child(6) 
-      -webkit-transition-delay: 0.62s
       transition-delay: 0.62s
-    
-    .hamburger.titleul-opened .icon.icon-bag 
-      -webkit-transform: translateX(75px)
-      transform: translateX(75px)
-      -webkit-transition-delay: 0.3s
-      transition-delay: 0.3s
