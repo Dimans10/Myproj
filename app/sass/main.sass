@@ -54,25 +54,6 @@
     text-align: center
     position: relative
 
-.slider::before
-    content: ""
-    background: url(../img/left_arrow.png)
-    display: block
-    height: 53px
-    width: 27px
-    position: absolute
-    left: 5%
-    top: calc(50% - 53px)
-    
-.slider::after
-    content: ""
-    background: url(../img/right_arrow.png)
-    display: block
-    height: 53px
-    width: 27px
-    position: absolute
-    right: 5%
-    top: calc(50% - 53px)
 
 .learnmore
     position: absolute
@@ -96,7 +77,40 @@
     font-size: 15px
     font-weight: 300
     
+.LeftRight
+    position: absolute
+    width: 80%
+    display: flex
+    left: 10%
+    justify-content: space-between
+    top: 40%
+    font-size: 3em
+
+.LeftRight .prev
+    background: url(../img/left_arrow.png)
+    height: 53px
+    width: 27px
     
+.LeftRight .next
+    background: url(../img/right_arrow.png)
+    height: 53px
+    width: 27px
+    
+.block
+    height: 100%
+    width: 80%
+    position: absolute
+    left: 10%
+    opacity: 0
+    transition: opacity 2s
+    
+    &.active
+      opacity: 1
+
+.block-3
+    background-image: url(../img/slide3.jpg)
+    background-size: 100% 100%
+    background-repeat: no-repeat
     
 .slider_menu
     position: absolute
@@ -691,10 +705,8 @@ a
       width: 100%
       background: rgba(0, 0, 0, 0.8)
       overflow: hidden
-      -webkit-transition: all 0.5s ease-out, background 1s ease-out
       transition: all 0.5s ease-out, background 1s ease-out
-      -webkit-transition-delay: 0.2s
-              transition-delay: 0.2s
+      transition-delay: 0.3s
       z-index: 1
 
     .hamburger .burger-container
@@ -703,14 +715,9 @@ a
       height: 50px
       width: 50px
       cursor: pointer
-      -webkit-transform: rotate(0deg)
-              transform: rotate(0deg)
-      -webkit-transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99)
+      transform: rotate(0deg)
       transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99)
-      -webkit-user-select: none
-         -moz-user-select: none
-          -ms-user-select: none
-              user-select: none
+      user-select: none
       -webkit-tap-highlight-color: transparent
     
     .hamburger .burger-container #burger 
@@ -727,17 +734,13 @@ a
       display: block
       position: relative
       background: #FFF
-      -webkit-transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99)
       transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99)
-      -webkit-transition-delay: 0s
       transition-delay: 0s
     
     .hamburger .burger-container #burger .bar.topBar 
-      -webkit-transform: translateY(0px) rotate(0deg)
       transform: translateY(0px) rotate(0deg)
 
     .hamburger .burger-container #burger .bar.btmBar 
-      -webkit-transform: translateY(6px) rotate(0deg)
       transform: translateY(6px) rotate(0deg)
     
     .hamburger ul.titleul 
@@ -749,36 +752,28 @@ a
     .hamburger ul.titleul li.titleul-item 
       border-bottom: 1px solid #333
       margin-top: 5px
-      -webkit-transform: scale(1.15) translateY(-30px)
       transform: scale(1.15) translateY(-30px)
       opacity: 0
-      -webkit-transition: opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99)
       transition: opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99)
       transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99)
       transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99)
     
     .hamburger ul.titleul li.titleul-item:nth-child(1) 
-      -webkit-transition-delay: 0.49s
       transition-delay: 0.49s
 
     .hamburger ul.titleul li.titleul-item:nth-child(2) 
-      -webkit-transition-delay: 0.42s
       transition-delay: 0.42s
 
     .hamburger ul.titleul li.titleul-item:nth-child(3) 
-      -webkit-transition-delay: 0.35s
       transition-delay: 0.35s
 
     .hamburger ul.titleul li.titleul-item:nth-child(4) 
-      -webkit-transition-delay: 0.28s
       transition-delay: 0.28s
 
     .hamburger ul.titleul li.titleul-item:nth-child(5) 
-      -webkit-transition-delay: 0.21s
       transition-delay: 0.21s
 
     .hamburger ul.titleul li.titleul-item:nth-child(6) 
-      -webkit-transition-delay: 0.14s
       transition-delay: 0.14s
     
     .hamburger ul.titleul li.titleul-item a 
@@ -797,7 +792,7 @@ a
       height: 100%
       background-color: #000
       transition: all 0.3s ease-in, background 0.5s ease-in;
-      transition-delay: 0.25s
+      transition-delay: 0.3s
 
     .hamburger.titleul-opened .burger-container 
       transform: rotate(90deg)

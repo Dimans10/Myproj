@@ -22,7 +22,7 @@ gulp.task('sass', function() {
         .pipe(csso())
         .pipe(rename('main.min.css'))
         .pipe(gulp.dest('app/css')) // Выгружаем результата // в папку app/css
-    .pipe(browserSync.reload({stream: true})) 
+        .pipe(browserSync.reload({stream: true})) 
        
 });
 
@@ -43,7 +43,8 @@ gulp.task('scripts', function(){
         .pipe(babel())
         .pipe(concat("all.min.js"))
         .pipe(uglify()) // Сжимаем JS файл
-        .pipe(gulp.dest('app/js')); // Выгружаем в папку app/js
+        .pipe(gulp.dest('app/js')) // Выгружаем в папку app/js
+        .pipe(browserSync.reload({stream: true}))
 });
 
 //gulp.task('css',['sass'] , function() {
@@ -72,7 +73,7 @@ gulp.task('img', function() {
 gulp.task('watch', ['browser-sync', 'sass', 'scripts'], function(){
     gulp.watch('app/sass/**/*.sass', ['sass']);
     gulp.watch('app/*.html', browserSync.reload);
-    gulp.watch('app/js/**/*.js', browserSync.reload);
+    gulp.watch('app/libs/**/*.js', ['scripts']);
 });
 
 gulp.task('build', ['clean', 'img' ,'sass', 'scripts'], function() {
