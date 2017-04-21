@@ -117,6 +117,9 @@
     left: 0
     right: 0
     bottom: 80px
+
+
+.slider_menu .check
     
 .slider .button
     font-size: 14px
@@ -165,7 +168,7 @@
     background-position: center
     
 .info .raket:hover
-    background-image: url("../img/raket_na.png") 
+    background-image: url("../img/raket_na.png")
 
 .info .atom
     background-image: url("../img/atom_na.png")
@@ -305,7 +308,7 @@
     padding-bottom: 50px
 
 .black     
-    background-image: url(../img/Work.png)   
+    background-image: url(../img/Work.png)
     background-repeat: no-repeat
     background-size: 100% 100%
     min-height: 500px
@@ -590,6 +593,90 @@ a
     background-image: url(../img/iconA.png)
     background-repeat: no-repeat
     display: inline-block
+    
+.popup
+    position: fixed
+    height: 100%
+    width: 100%
+    top: 0
+    left: 0
+    display: none
+    opacity: 0
+    transition: opacity 1.5s
+    
+    &.active
+        opacity: 1
+        transition: opacity 1.5s
+        
+.popup_bg
+    background: rgba(0,0,0,0.4)
+    position: absolute
+    z-index: 1
+    height: 100%
+    width: 100%
+	
+	
+.form
+    position: relative
+    margin: 0 auto
+    width: 50%
+    z-index: 2
+    box-sizing: border-box
+    padding: 40px
+    display: block
+    border-radius: 5px
+    background: rgba(255,255,255,1)
+    box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, 0.45)
+    
+.textbox
+    height: 50px
+    width: 100%
+    border-radius: 3px
+    border: rgba(0,0,0,0.3) 2px solid
+    box-sizing: border-box
+    font-family: 'Open Sans', sans-serif
+    font-size: 18px
+    padding: 10px
+    color: #17daa3
+    margin-bottom: 30px
+
+.message:focus,
+.textbox:focus
+    border: rgba(24,149,215,1) 2px solid
+    color: #17daa3
+
+.message
+    background: rgba(255, 255, 255, 0.4)
+    width: 100%
+    height: 120px
+    border: rgba(0,0,0,.3) 2px solid
+    box-sizing: border-box
+    font-size: 18px
+    font-family: 'Open Sans', sans-serif
+    border-radius: 3px
+    display: block
+    padding: 10px
+    color: #17daa3
+    margin-bottom: 30px
+    overflow: hidden
+
+/* Базовые стили кнопки */
+.button
+    height: 50px
+    width: 100%
+    border-radius: 5px
+    box-sizing: border-box
+    padding: 10px
+    background: #17daa3
+    color: #FFF
+    font-family: 'Open Sans', sans-serif
+    font-weight: 400
+    font-size: 16px
+    transition: background 0.8s
+    cursor: pointer
+
+.button:hover
+    background: #25b718
 
 @media (max-width: 480px)
     .header
@@ -617,10 +704,6 @@ a
     .header .slider_info h5    
         width: 77%
         padding-left: 13%
-        
-    .about h4, .services h4, .team h4, .pricing h4
-        line-height: 30px
-        margin-left: 10%
         
     .about h1, .services h1, .team h1, .pricing h1
         margin: 0;
@@ -686,10 +769,35 @@ a
     .black h1
         margin-left: 3%
         font-size: 25px
+        
+    .form
+        width: 80%
+        
+    .textbox
+        font-size: 12px
+        height: 30px
+    
+    .message
+        font-size: 12px
 
+@media (max-width: 618px)
+    .about h4, .services h4, .team h4, .pricing h4
+        line-height: 30px
+        margin-left: 10%
+        
 @media (max-width: 350px)
     .header .menu ul li
         margin-right: 9px
+
+@media(min-width: 481px) and (max-width: 750px)
+    .form
+        width: 65%
+        
+    .textbox
+        font-size: 14px
+
+    .message
+        font-size: 14px
         
 @media (min-width: 481px) and (max-width: 1023px)
     .photo
@@ -746,7 +854,7 @@ a
     .hamburger ul.titleul 
       position: relative
       display: block
-      padding: 0px 48px 0
+      padding: 30px 65px 0
       list-style: none
 
     .hamburger ul.titleul li.titleul-item 
@@ -757,6 +865,7 @@ a
       transition: opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99)
       transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99)
       transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99)
+    
     
     .hamburger ul.titleul li.titleul-item:nth-child(1) 
       transition-delay: 0.49s

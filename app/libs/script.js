@@ -4,9 +4,9 @@
         titleItem = document.querySelectorAll('.titleul-item a');
     
     
-    burger.onclick = function() {
+    burger.addEventListener('click', () => {
         hamburger.classList.toggle('titleul-opened');
-    }
+    });
     
     for(let i = 0; i < titleItem.length; i++)
         {
@@ -21,9 +21,12 @@
         right = document.querySelector('.slider .LeftRight .next'),
         slide = document.querySelectorAll('.slider .block_info .block'),
         i = 0,
-        myinterval = setInterval(right.onclick,5000);
+        time = 5000,
+        www;
     
-    left.onclick = function() {
+    left.addEventListener('click', (event) => {
+        event.preventDefault();
+        clearInterval(www);
         slide[i].classList.remove('active');
         i--;
         if (i < 0) {
@@ -31,82 +34,102 @@
         }
         
         slide[i].classList.add('active');
-    }
+        www = setInterval(right.onclick,time);
+    });
     
-    right.onclick = function(){
-      slide[i].classList.remove('active');
-      i++;
-      if(i >= slide.length) {
-        i = 0;
-      }
-
-      slide[i].classList.add('active');
-    }  
-    setInterval(right.onclick,5000);
+    right.addEventListener('click', (event) => {
+        event.preventDefault();
+        clearInterval(www);
+        slide[i].classList.remove('active');
+        i++;
+        if(i >= slide.length) {
+            i = 0;
+        }
+        slide[i].classList.add('active');
+        www = setInterval(right.onclick,time);
+    });  
+        www = setInterval(right.onclick,time);
 }());
 
 
-(function() {
-    let abo = document.querySelectorAll('.titleul-item'),
-        title = document.getElementById('about'),
-        work = document.getElementById('work'),
-        services = document.getElementById('services'),
-        blog = document.getElementById('blog'),
-        top = 0,
-        topValue = 0;
-    
-    console.log(title.getBoundingClientRect());
-    console.log(work.getBoundingClientRect());
-    console.log(services.getBoundingClientRect());
-    console.log(blog.getBoundingClientRect());
-    
-    abo[1].onclick = function meracle () {
-        topValue = title.getBoundingClientRect().top;
-        let scr = setInterval(function () {
-            top += 10;
-            window.scrollTo(0, top);
-            if (top > topValue) {
-                clearInterval(scr);
-                top = 0;
+(function(){
+    const speed = 6;
+    let top = 0,
+        src;
+    [].forEach.call(document.querySelectorAll('.move-to'), (item) => {
+        console.log(item);
+        const target = document.getElementById(item.getAttribute('href').split('#')[1]);
+        item.addEventListener('click', (event) => {
+            event.preventDefault();
+            let topvalue = Math.abs(target.offsetTop);
+            console.log(top);
+            console.log(topvalue);
+            let y = top;
+            if (top > topvalue) {
+                src = setInterval( function () {
+                    top -= 10;
+                    window.scrollTo(0,top);
+                    if (top <= topvalue) {
+                        clearInterval(src);
+                        top = topvalue;
+                    }
+                },speed);
             }
-        }, 15);
-    }
-    
-    abo[2].onclick = function () {
-        topValue = work.getBoundingClientRect().top;
-        let scr = setInterval(function () {
-            top += 10;
-            window.scrollTo(0, top);
-            if (top > topValue) {
-                clearInterval(scr);
-                top = 0;
+            else {
+                console.log(top);
+                console.log(topvalue);
+                src = setInterval(function () {
+                    top +=10;
+                    window.scrollTo(0, top);
+                    if (top >= topvalue) {
+                        clearInterval(src);
+                    }
+                }, speed);
             }
-        }, 10);
-        console.log(work.getBoundingClientRect());
+        });
+    });
+}());
+
+function displayNone(){
+        form.style.display = "none";
     }
 
-    abo[3].onclick = function () {
-        topValue = services.getBoundingClientRect().top;
-        let scr = setInterval(function () {
-            top += 10;
-            window.scrollTo(0, top);
-            if (top > topValue) {
-                clearInterval(scr);
-                top = 0;
-            }
-        }, 10);
-    }
+function showA() {
+    let form = document.querySelector('.popup');
+    console.log("ЙЙЙЙ");
+    form.style.display = "block";
+    ////form.style.opacity = 1;
+    setTimeout(function(){
+        form.classList.add('active');
+        form.addEventListener('transitionend', displayNone);
+    }, 0);
+};
 
-        abo[4].onclick = function () {
-        topValue = blog.getBoundingClientRect().top;
-        let scr = setInterval(function () {
-            top += 10;
-            window.scrollTo(0, top);
-            if (top > topValue) {
-                clearInterval(scr);
-                top = 0;
-            }
-        }, 8);
-    }
 
+function hidenA() {
+    let form = document.querySelector('.popup');
+    form.classList.remove('active');
+    setTimeout(function(){
+        form.style.display = "none";
+        form.removeEventListener('transitionend', displayNone(form));
+    }, 0);
+    // не получилось сделать адекватное плавное закрытие формы. 
+};
+
+(function () {
+    let pop = document.getElementById('lowly'),
+        form = document.querySelector('.popup'),
+        b = false;
+    pop.addEventListener('click', (event) => {
+        event.preventDefault();
+        console.log("DDDD");
+        if (!b) {
+            showA();
+            b = true;
+        }
+    });
+    document.querySelector('.popup_bg').addEventListener('click', (event) => {
+        hidenA();
+        b = false;
+    });
 }());

@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/main.min.css">
 </head>
-<body>
+<body id="head">
    <div class="conteiner">
-        <section class="header">
+        <section class="header" >
            <div class="menu" id="menu">
              <div class="logotip">
                  <span class="logo"></span>
@@ -21,11 +21,11 @@
                     </div>
                    </div>
                     <ul class="titleul">
-                    <li class="titleul-item"><a href ="#">HOME</a></li>
-                    <li class="titleul-item"><a href ="#about">ABOUT</a></li>
-                    <li class="titleul-item"><a href ="#work">WORK</a></li>
-                    <li class="titleul-item"><a href ="#services">SERVICES</a></li>
-                    <li class="titleul-item"><a href ="#blog">BLOG</a></li>
+                    <li class="titleul-item"><a class="move-to" href ="#head">HOME</a></li>
+                    <li class="titleul-item"><a class="move-to" href ="#about">ABOUT</a></li>
+                    <li class="titleul-item"><a class="move-to" href ="#work">WORK</a></li>
+                    <li class="titleul-item"><a class="move-to" href ="#services">SERVICES</a></li>
+                    <li class="titleul-item"><a class="move-to" href ="#blog">BLOG</a></li>
                     <li class="titleul-item"><a href ="#"><img src="./img/search.png" alt=""></a></li>
                     </ul>
                </div>
@@ -206,7 +206,7 @@
                            Ante sed interdum labortis
                            Est nisi efficitur lactus</p>
                    </div>                   
-                    <a class="buy" href="#"><span href="#">PURCHASE</span>
+                    <a class="buy" id="lowly" href="#about"><span href="#">PURCHASE!</span>
                     <img class="buying" src="./img/pursh.png" align="right" alt=""></a>
                 </div>
                 <div class="purch mid">
@@ -254,6 +254,18 @@
                     <a class="buy" href="#"><span href="#">PURCHASE</span>
                     <img class="buying" src="./img/pursh.png" align="right" alt=""></a>                 
                 </div>
+                <div class="popup">
+               <div class="popup_bg"></div>
+               <div class="form">
+                   <form>
+                    <input name="name" placeholder="Укажите Ваше имя!" class="textbox" required />
+                    <input name="phone" placeholder="Укажите Ваш номер телефона!" class="textbox" required />
+                    <input name="emailaddress" placeholder="Укажите Ваш Email!" class="textbox" type="email" required />
+                    <textarea rows="4" cols="50" name="subject" placeholder="Введите ваше сообщение:" class="message" required></textarea>
+                    <input name="submit" class="button" type="submit" value="Отправить" />
+                   </form>
+               </div>
+           </div>
             </div>
         </section>
         <section class="blog" id="blog">
@@ -284,11 +296,11 @@
              </div>
              <div class="list">
                 <ul>
-                <li><a href ="#">Home</a></li>
-                <li><a href ="#about">About</a></li>
-                <li><a href ="#work">Work</a></li>
-                <li><a href ="#services">Services</a></li>
-                <li><a href ="#blog">Blog</a></li>
+                <li class="footer_menu"><a class="move-to" href ="#head">Home</a></li>
+                <li class="footer_menu"><a class="move-to" href ="#about">About</a></li>
+                <li class="footer_menu"><a class="move-to" href ="#work">Work</a></li>
+                <li class="footer_menu"><a class="move-to" href ="#services">Services</a></li>
+                <li class="footer_menu"><a class="move-to" href ="#blog">Blog</a></li>
                 </ul>
              </div>
            </div>

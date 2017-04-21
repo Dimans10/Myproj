@@ -42,7 +42,7 @@ gulp.task('scripts', function(){
         .pipe(iife())
         .pipe(babel())
         .pipe(concat("all.min.js"))
-        .pipe(uglify()) // Сжимаем JS файл
+      //  .pipe(uglify()) // Сжимаем JS файл
         .pipe(gulp.dest('app/js')) // Выгружаем в папку app/js
         .pipe(browserSync.reload({stream: true}))
 });
