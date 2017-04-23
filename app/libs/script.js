@@ -19,7 +19,7 @@
 (function() {
     let left = document.querySelector('.slider .LeftRight .prev'),
         right = document.querySelector('.slider .LeftRight .next'),
-        slide = document.querySelectorAll('.slider .block_info .block'),
+        slide = document.querySelectorAll('.slider .block'),
         i = 0,
         time = 5000,
         www;
@@ -57,7 +57,6 @@
     let top = 0,
         src;
     [].forEach.call(document.querySelectorAll('.move-to'), (item) => {
-        console.log(item);
         const target = document.getElementById(item.getAttribute('href').split('#')[1]);
         item.addEventListener('click', (event) => {
             event.preventDefault();
@@ -132,4 +131,21 @@ function hidenA() {
         hidenA();
         b = false;
     });
+}());
+
+(function () {
+    let menu = document.getElementById('menu'),
+        text = document.querySelectorAll('.header .menu a');
+    if (document.body.scrollTop >= 600) {
+        menu.style.position = "fixed";
+        for(let i = 0; i < text.length; i++){
+            text[i].style.color = "#17daa3";
+        }
+    }
+    else {
+         menu.style.position = "relative";
+         for(let i = 0; i < text.length; i++){
+            text[i].style.color = "white";
+         }
+    }
 }());
