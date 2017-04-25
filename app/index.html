@@ -204,7 +204,7 @@
                            Ante sed interdum labortis
                            Est nisi efficitur lactus</p>
                    </div>                   
-                    <a class="buy" id="lowly" href="#about"><span href="#">PURCHASE!</span>
+                    <a class="buy" id="lowly" href="#"><span href="#">PURCHASE!</span>
                     <img class="buying" src="./img/pursh.png" align="right" alt=""></a>
                 </div>
                 <div class="purch mid">
@@ -219,7 +219,7 @@
                        Ante sed interdum labortis
                        Est nisi efficitur lactus</p>
                     </div>
-                    <a class="buy" href="#"><span href="#">PURCHASE</span>
+                    <a class="buy" id="midly" href="#"><span href="#">PURCHASE</span>
                     <img class="buying" src="./img/pursh.png" align="right" alt=""></a> 
                 </div>
                 <div class="purch high">
@@ -256,11 +256,12 @@
                <div class="popup_bg"></div>
                <div class="form">
                    <form>
-                    <input name="name" placeholder="Укажите Ваше имя!" class="textbox" required />
-                    <input name="phone" placeholder="Укажите Ваш номер телефона!" class="textbox" required />
-                    <input name="emailaddress" placeholder="Укажите Ваш Email!" class="textbox" type="email" required />
-                    <textarea rows="4" cols="50" name="subject" placeholder="Введите ваше сообщение:" class="message" required></textarea>
-                    <input name="submit" class="button" type="submit" value="Отправить" />
+                    <input name="name" id="userName" placeholder="Укажите Ваше имя!" class="textbox" />
+                    <input name="phone" id="userPhone" placeholder="Укажите Ваш номер телефона!" class="textbox"/>
+                    <input name="emailaddress" id="userEmail" placeholder="Укажите Ваш Email!" class="textbox" type="email"/>
+                    <textarea rows="4" cols="50" name="subject" placeholder="Введите ваше сообщение:" class="message"></textarea>
+                    <input name="submit" id="cancel" class="button cancel" type="submit" value="Отменить" />
+                    <input name="submit" id="subway"  class="button" type="submit" value="Отправить" />
                    </form>
                </div>
            </div>
