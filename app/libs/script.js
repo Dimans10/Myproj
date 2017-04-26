@@ -16,49 +16,95 @@
         }
 }());
 
-function prevSlide(mytimer, slide, i) {
-    clearInterval(mytimer);
-    slide[i].classList.remove('active');
-    i--;
-    if (i < 0) {
-        i = slide.length-1;
-    }    
-    slide[i].classList.add('active');
-    //www = setInterval(right.onclick,time);
-};
-
-function nextSlide(mytimer, slide, i) {
-    clearInterval(mytimer);
-    slide[i].classList.remove('active');
-    i++;
-    if(i = slide.length) {
-        i = 0;
+const myslider = (function SliderClass(options = {}) {
+    const defaultOptions = {
+        time: 4000,
+        sliderr: '.slider',
+        slidess: '.slider .block',
+        activeClass: 'active',
+        dotActiveClass: 'act',
+        dotDeactiveClass: 'deact'
+    };
+    const o = Object.assign({ }, defaultOptions, options);
+    const slider = document.querySelector(o.sliderr);
+    const slides = document.querySelectorAll(o.slidess);
+    let curSlide = 0,
+        dots = document.querySelectorAll('.act_s');
+    
+    function SetActiveSlide(num) {
+        [].forEach.call(slides, (item) => {
+            item.classList.remove(o.activeClass);
+        })
+        slides[num].classList.add(o.activeClass);
+        curSlide = num;
     }
-    slide[i].classList.add('active');
-};
+    
+    function nextSlide() {
+        slides[curSlide].classList.remove(o.activeClass);
+        dots[curSlide].classList.remove(o.activeClass);
+        curSlide = curSlide < slides.length-1 ? ++curSlide : 0;
+        slides[curSlide].classList.add(o.activeClass);
+        dots[curSlide].classList.add(o.activeClass);
+    }
+
+    function prevSlide() {
+        slides[curSlide].classList.remove(o.activeClass);
+        dots[curSlide].classList.remove(o.activeClass);
+        curSlide = curSlide == 0 ? slides.length-1 : --curSlide;
+        slides[curSlide].classList.add(o.activeClass);
+        dots[curSlide].classList.add(o.activeClass);
+    }
+    
+    let timeId;
+    
+    function autoplay() {
+        timeId = setInterval(nextSlide, o.time);
+    }
+    
+    function stopAutoplay() {
+        clearInterval(timeId);
+    }
+    
+    function createDots() {
+        const dotConteiner = document.querySelector(o.dotActiveClass);
+        [].forEach.call(slides, (item, ind) => {
+            let dot = document.createElement('div');
+            dot.classList.add(o.dotActiveClass);
+            dot.addEventListener('click', () => {
+                SetActiveSlide(ind);
+            });
+        });
+    }; // createDots();
+    
+    return {
+        nextSlide,
+        prevSlide,
+        autoplay,
+        stopAutoplay,
+        SetActiveSlide
+    }
+}());
+
 
 (function() {
     let left = document.querySelector('.slider .LeftRight .prev'),
-        right = document.querySelector('.slider .LeftRight .next'),
-        slide = document.querySelectorAll('.slider .block'),
-        i = 0,
-        time = 5000,
-        www;
+        right = document.querySelector('.slider .LeftRight .next');
     
     left.addEventListener('click', (event) => {
         event.preventDefault();
-        prevSlide(www);
-        www = setInterval(prevSlide(www, slide, i),time);
-    });
-    
+        myslider.stopAutoplay();
+        myslider.prevSlide();
+        myslider.autoplay();
+    } );
     right.addEventListener('click', (event) => {
         event.preventDefault();
-        nextSlide(www);
-        www = setInterval(nextSlide(www, slide, i), time);
-    });  
-        www = setInterval(nextSlide(www, slide, i), time);
+        myslider.stopAutoplay();
+        myslider.nextSlide();
+        myslider.autoplay();
+    })
+    
+    myslider.autoplay();
 }());
-
 
 (function(){
     const speed = 6;
@@ -106,11 +152,13 @@ function showA() {
 };
 
 function hidenA() {
-    let form = document.querySelector('.popup');
+    let form = document.querySelector('.popup'),
+        menu = document.querySelector('.header .menu ul');
     setTimeout(function(){
         form.style.display = "none";
     }, 1200);
         form.classList.remove('active');
+        menu.style.zIndex = "2";
 };
 
 // Анимация закрытия формы, конечно, не самая лучшая, но хотя бы работает 
@@ -137,8 +185,7 @@ function resetInput(){
         cancel = document.getElementById('cancel'),
         form = document.querySelector('.popup'),
         fone = document.querySelector('.popup_bg'),
-        submit = document.getElementById('subway'),
-        b = false;
+        submit = document.getElementById('subway');
     
     pop.addEventListener('click', (event) => {
         event.preventDefault();
@@ -164,13 +211,12 @@ function resetInput(){
         text = document.querySelectorAll('.header .menu a');
     
     window.addEventListener('scroll', (event) =>{
-        if (window.scrollY >= 600) {
+        if (window.scrollY >= 600 && window.innerWidth > 589) {
             menu.style.position = "fixed";
             menu.style.borderRadius = "5px";
             menu.style.background = "#17daa3"
             menu.style.border = "#17daa3 5px solid";
             menu.style.minHeight = "0px";
-            menu.style.zIndex = "1";
         }
         else {
             menu.style.position = "relative";
@@ -253,4 +299,3 @@ function resetInput(){
         }
     });
 }());
-

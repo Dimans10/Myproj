@@ -25,17 +25,20 @@
     align-items: center
     min-height: 100px
     list-style-type: none
+    z-index: 2
     
     
 .header .menu ul li
     margin-right: 40px
+
+.header .menu ul :last-child
+    margin-right: 0
 
 .logotip
     position: relative
     display: inline-block
     top: 64px
     left: 15%
-
     
 .header .logo 
     margin-right: 5px
@@ -55,7 +58,6 @@
     min-height: 400px
     text-align: center
     position: relative
-
 
 .learnmore
     position: absolute
@@ -98,6 +100,17 @@
     height: 53px
     width: 27px
     
+.act_s
+    background-image: url(../img/deactive_slide.png)
+    display: inline-block
+    width: 10px
+    height: 10px
+    background-size: 100% 100%
+    background-repeat: no-repeat
+    
+    &.active
+      background-image: url(../img/active_slide.png)
+
 .block
     height: 100%
     width: 80%
@@ -839,6 +852,7 @@ a
 @media (max-width: 589px)
     .logotip
         text-align: center
+        display: block
         left: 0
     
     .slider
