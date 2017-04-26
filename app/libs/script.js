@@ -22,20 +22,25 @@ const myslider = (function SliderClass(options = {}) {
         sliderr: '.slider',
         slidess: '.slider .block',
         activeClass: 'active',
-        dotActiveClass: 'act',
-        dotDeactiveClass: 'deact'
+        dotActiveClass: '.act_s'
     };
     const o = Object.assign({ }, defaultOptions, options);
     const slider = document.querySelector(o.sliderr);
     const slides = document.querySelectorAll(o.slidess);
-    let curSlide = 0,
-        dots = document.querySelectorAll('.act_s');
+    const dots = document.querySelectorAll(o.dotActiveClass);
+    let curSlide = 0;
     
     function SetActiveSlide(num) {
         [].forEach.call(slides, (item) => {
             item.classList.remove(o.activeClass);
-        })
+        });
+        
+        [].forEach.call(dots, (i) => {
+            i.classList.remove(o.activeClass);
+        });
+        
         slides[num].classList.add(o.activeClass);
+        dots[num].classList.add(o.activeClass);
         curSlide = num;
     }
     
@@ -88,20 +93,31 @@ const myslider = (function SliderClass(options = {}) {
 
 (function() {
     let left = document.querySelector('.slider .LeftRight .prev'),
-        right = document.querySelector('.slider .LeftRight .next');
+        right = document.querySelector('.slider .LeftRight .next'),
+        dot = document.querySelectorAll('.act_s');
+        
     
     left.addEventListener('click', (event) => {
         event.preventDefault();
         myslider.stopAutoplay();
         myslider.prevSlide();
         myslider.autoplay();
-    } );
+    });
     right.addEventListener('click', (event) => {
         event.preventDefault();
         myslider.stopAutoplay();
         myslider.nextSlide();
         myslider.autoplay();
-    })
+    });
+    
+    for(let i = 0; i < dot.length; ++i) {
+        dot[i].addEventListener('click', (event) => {
+            event.preventDefault();
+            myslider.stopAutoplay();
+            myslider.SetActiveSlide(i);
+            myslider.autoplay();
+        });
+    }
     
     myslider.autoplay();
 }());
@@ -179,7 +195,6 @@ function resetInput(){
     userEmail.style.border = trueborder;
 }
 
-
 (function () {
     let pop = document.getElementById('lowly'),
         cancel = document.getElementById('cancel'),
@@ -189,7 +204,7 @@ function resetInput(){
     
     pop.addEventListener('click', (event) => {
         event.preventDefault();
-        console.log("DDDD");
+       // console.log("DDDD");
         showA();
     });
     
@@ -235,7 +250,6 @@ function resetInput(){
         userName = document.getElementById('userName'),
         userPhone = document.getElementById('userPhone'),
         userEmail = document.getElementById('userEmail'),
-        b = 3,
         checkName = /^[a-z-а-яё]+$/i,
         checkEmail = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,3}$/i,
         boolName = false,
