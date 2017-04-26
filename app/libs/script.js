@@ -296,20 +296,30 @@ function resetInput(){
     });
 }());
 
+/*$.getJSON('data.json', function(data) {
+        var output="<ul>";
+        for (var i in data.users) {
+            output+="<li>" + data.users[i].firstName + " " + data.users[i].lastName + "--" + data.users[i].joined.month+"</li>";
+        }
+
+        output+="</ul>";
+        document.getElementById("placeholder").innerHTML=output;
+  });*/
+
 (function () {
-    let pop = document.getElementById('midly'),
+    let pop = document.querySelector('.jsonformat'),
         xhr = new XMLHttpRequest();
-    pop.addEventListener('click', (event) => {
         xhr.open('GET', '../info.json', true);
         xhr.send();
-        event.preventDefault();
         xhr.onreadystatechange = function() {
             if (xhr.readyState != 4) return;
             if (xhr.status != 200) {
                 alert( xhr.status + ': ' + xhr.statusText );
             } else {
-                alert( xhr.responseText );
+                let out = "<p>",
+                    info = JSON.parse(xhr.responseText);
+                out += info.mapinfo + "</p>";
+                pop.innerHTML = out;
             }
         }
-    });
 }());
