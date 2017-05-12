@@ -1,0 +1,23 @@
+@font-face {
+    font-family: ProximaNova;
+    src: url("../fonts/proximanovabold-webfont.woff2") format("woff2");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url("../fonts/proximanovaregular-webfont.woff2") format("woff2");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url("../fonts/ralewaybold-webfont.woff2") format("woff2");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url("../fonts/ralewaylight-webfont.woff2") format("woff2");
+    font-weight: 500;
+}

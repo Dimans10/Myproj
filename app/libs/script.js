@@ -3,6 +3,7 @@
         hamburger = document.querySelector('.hamburger'),
         titleItem = document.querySelectorAll('.titleul-item a');
     
+    console.log("burger");
     
     burger.addEventListener('click', () => {
         hamburger.classList.toggle('titleul-opened');
@@ -25,11 +26,10 @@ const myslider = (function SliderClass(options = {}) {
         dotActiveClass: '.act_s'
     };
     const o = Object.assign({ }, defaultOptions, options);
-    const slider = document.querySelector(o.sliderr);
-    const slides = document.querySelectorAll(o.slidess);
-    const dots = document.querySelectorAll(o.dotActiveClass);
+    const slider = angular.element(document.querySelector(o.sliderr));
+    const slides = angular.element(document.querySelectorAll(o.slidess));
+    const dots = angular.element(document.querySelectorAll(o.dotActiveClass));
     let curSlide = 0;
-    
     function SetActiveSlide(num) {
         [].forEach.call(slides, (item) => {
             item.classList.remove(o.activeClass);
@@ -71,7 +71,7 @@ const myslider = (function SliderClass(options = {}) {
     }
     
     function createDots() {
-        const dotConteiner = document.querySelector(o.dotActiveClass);
+        const dotConteiner = angular.element(document.querySelector(o.dotActiveClass));
         [].forEach.call(slides, (item, ind) => {
             let dot = document.createElement('div');
             dot.classList.add(o.dotActiveClass);
@@ -92,18 +92,17 @@ const myslider = (function SliderClass(options = {}) {
 
 
 (function() {
-    let left = document.querySelector('.slider .LeftRight .prev'),
-        right = document.querySelector('.slider .LeftRight .next'),
-        dot = document.querySelectorAll('.act_s');
-        
+    let left = angular.element(document.querySelector('.slider .LeftRight .prev')),
+        right = angular.element(document.querySelector('.slider .LeftRight .next')),
+        dot = angular.element(document.querySelectorAll('.act_s'));
     
-    left.addEventListener('click', (event) => {
+    left.on('click', (event) => {
         event.preventDefault();
         myslider.stopAutoplay();
         myslider.prevSlide();
         myslider.autoplay();
     });
-    right.addEventListener('click', (event) => {
+    right.on('click', (event) => {
         event.preventDefault();
         myslider.stopAutoplay();
         myslider.nextSlide();
@@ -126,6 +125,7 @@ const myslider = (function SliderClass(options = {}) {
     const speed = 6;
     let top = 0,
         src;
+    console.log("dsda");
     [].forEach.call(document.querySelectorAll('.move-to'), (item) => {
         const target = document.getElementById(item.getAttribute('href').split('#')[1]);
         item.addEventListener('click', (event) => {
@@ -158,18 +158,20 @@ const myslider = (function SliderClass(options = {}) {
 }());
 
 function showA() {
-    let form = document.querySelector('.popup'),
-        menu = document.querySelector('.header .menu ul');
-    form.style.display = "block";
-    menu.style.zIndex = "0";
+    let form = angular.element(document.querySelector('.popup')),
+        menu = angular.element(document.querySelector('.header .menu ul'));
+    form.css("display", "block");
+    menu.css("zIndex", "0");
+    //form.style.display = "block";
+    //menu.style.zIndex = "0";
     setTimeout(function(){
-        form.classList.add('active');
+        form.addClass("active");
     }, 0);
 };
 
 function hidenA() {
-    let form = document.querySelector('.popup'),
-        menu = document.querySelector('.header .menu ul');
+    let form = angular.element(document.querySelector('.popup')),
+        menu = angular.element(document.querySelector('.header .menu ul'));
     setTimeout(function(){
         form.style.display = "none";
     }, 1200);
@@ -196,15 +198,15 @@ function resetInput(){
 }
 
 (function () {
-    let pop = document.getElementById('lowly'),
-        cancel = document.getElementById('cancel'),
-        form = document.querySelector('.popup'),
-        fone = document.querySelector('.popup_bg'),
-        submit = document.getElementById('subway');
-    
-    pop.addEventListener('click', (event) => {
+    let pop = angular.element(document.getElementById('lowly')),
+        cancel = angular.element(document.getElementById('cancel')),
+        form = angular.element(document.querySelector('.popup')),
+        fone = angular.element(document.querySelector('.popup_bg')),
+        submit = angular.element(document.getElementById('subway'));
+    console.log("sdsasdas");
+    pop.on('click', (event) => {
         event.preventDefault();
-       // console.log("DDDD");
+        console.log("Yep");
         showA();
     });
     
@@ -222,10 +224,10 @@ function resetInput(){
 }());
 
 (function () {
-    let menu = document.querySelector('.header .menu ul'),
-        text = document.querySelectorAll('.header .menu a');
-    
-    window.addEventListener('scroll', (event) =>{
+    let menu = angular.element(document.querySelector('.header .menu ul')),
+        text = angular.element(document.querySelectorAll('.header .menu a'));
+    console.log("SCROOL");
+    window.on('scroll', (event) =>{
         if (window.scrollY >= 600 && window.innerWidth > 589) {
             menu.style.position = "fixed";
             menu.style.borderRadius = "5px";
