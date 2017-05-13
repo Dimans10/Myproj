@@ -15,3 +15,10 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         });
     $urlRouterProvider.otherwise('/home');
 });
+
+let app = angular.module('angularjs-starter', ["ngSanitize"]);
+
+app.controller('MainCtrl', function($scope) {
+  $scope.name = 'World';
+  $scope.content = "<b>this is bold content</b><p>with a <u>paragraph</u></p>";
+});

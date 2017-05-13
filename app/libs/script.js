@@ -120,7 +120,7 @@ const myslider = (function SliderClass(options = {}) {
     
     myslider.autoplay();
 }());
-
+/*
 (function(){
     const speed = 6;
     let top = 0,
@@ -156,7 +156,7 @@ const myslider = (function SliderClass(options = {}) {
         });
     });
 }());
-
+*/
 function showA() {
     let form = angular.element(document.querySelector('.popup')),
         menu = angular.element(document.querySelector('.header .menu ul'));
@@ -173,10 +173,10 @@ function hidenA() {
     let form = angular.element(document.querySelector('.popup')),
         menu = angular.element(document.querySelector('.header .menu ul'));
     setTimeout(function(){
-        form.style.display = "none";
+        form.css("display", "none");
     }, 1200);
-        form.classList.remove('active');
-        menu.style.zIndex = "2";
+        form.removeClass("active");
+        menu.css("zIndex", "2");
 };
 
 // Анимация закрытия формы, конечно, не самая лучшая, но хотя бы работает 
@@ -210,12 +210,12 @@ function resetInput(){
         showA();
     });
     
-    fone.addEventListener('click', (event) => {
+    fone.on('click', (event) => {
         hidenA();
         resetInput();
     });
     
-    cancel.addEventListener('click', (event) => {
+    cancel.on('click', (event) => {
         event.preventDefault();
         hidenA();
         resetInput();
@@ -227,20 +227,21 @@ function resetInput(){
     let menu = angular.element(document.querySelector('.header .menu ul')),
         text = angular.element(document.querySelectorAll('.header .menu a'));
     console.log("SCROOL");
-    window.on('scroll', (event) =>{
+    window.addEventListener('scroll', (event) =>{
         if (window.scrollY >= 600 && window.innerWidth > 589) {
-            menu.style.position = "fixed";
-            menu.style.borderRadius = "5px";
-            menu.style.background = "#17daa3"
-            menu.style.border = "#17daa3 5px solid";
-            menu.style.minHeight = "0px";
+            //form.css("display", "block");
+            menu.css("position", "fixed");
+            menu.css("borderRadius", "5px");
+            menu.css("background", "#17daa3");
+            menu.css("border", "#17daa3 5px solid");
+            menu.css("minHeight", "0px");
         }
-        else {
-            menu.style.position = "relative";
-            menu.style.borderRadius = "";
-            menu.style.border = "";
-            menu.style.background = ""
-            menu.style.minHeight = "100px"
+        else {            
+            menu.css("position", "relative");
+            menu.css("borderRadius", "");
+            menu.css("border", "");
+            menu.css("background", "");
+            menu.css("minHeight", "100px");
         }
     })
 }());
@@ -298,18 +299,8 @@ function resetInput(){
     });
 }());
 
-/*$.getJSON('data.json', function(data) {
-        var output="<ul>";
-        for (var i in data.users) {
-            output+="<li>" + data.users[i].firstName + " " + data.users[i].lastName + "--" + data.users[i].joined.month+"</li>";
-        }
-
-        output+="</ul>";
-        document.getElementById("placeholder").innerHTML=output;
-  });*/
-
 (function () {
-    let pop = document.querySelector('.jsonformat'),
+    let pop = angular.element(document.querySelector('.jsonformat')),
         xhr = new XMLHttpRequest();
         xhr.open('GET', '../info.json', true);
         xhr.send();
@@ -321,7 +312,11 @@ function resetInput(){
                 let out = "<p>",
                     info = JSON.parse(xhr.responseText);
                 out += info.mapinfo + "</p>";
-                pop.innerHTML = out;
+                let newDiv = angular.element(out);
+                console.log("XHR is good");
+                pop.append(out);
+                //pop.text(out);
+                console.log(pop);
             }
         }
 }());
