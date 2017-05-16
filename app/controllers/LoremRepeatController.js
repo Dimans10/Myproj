@@ -1,6 +1,6 @@
-questApp.controller('LoremRepeatController', 
+angApp.controller('LoremRepeatController', 
     function QuestionController($scope, $http){
-      $http({method: 'GET', url: 'http://localhost:8000/notes'}).
+      $http({method: 'GET', url: 'http://localhost:8000/notes', headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).
       then(function success(response) {
           $scope.lorem = response.data;
           $scope.lorem.text = response.data[0].text;

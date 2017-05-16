@@ -6,8 +6,8 @@ app.controller('MainCtrl', function($scope) {
   $scope.content = "<b>this is bold content</b><p>with a <u>paragraph</u></p>";
 });*/
 
-var questApp = angular.module('angApp', ['ui.router']);
-questApp.config(function($stateProvider, $urlRouterProvider) {
+var angApp = angular.module('angApp', ['ui.router']);
+angApp.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('wew', {
             url: '/wew',
