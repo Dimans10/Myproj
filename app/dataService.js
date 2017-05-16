@@ -1,4 +1,5 @@
 angApp.factory('dataService', function(){
+    return{
         $http({ metod: 'GET', url: 'http://localhost:8000/notes'}).
         then(function success(response) {
         $scope.lorem = response.data;
@@ -7,12 +8,6 @@ angApp.factory('dataService', function(){
     }, function error(response){
         console.log("Возникла ошибка");
         console.log(response.status);
-          });
-    return{
-        question:{
-            text: 'Какой js-фреймворк лучше использовать?',
-            author: 'Иван Иванов',
-            date: '20/10/2013'
-        }
-    };
+    });
+};
 })
