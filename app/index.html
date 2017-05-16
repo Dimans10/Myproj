@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/main.min.css">
 </head>
-<body id="head" ng-app="routerApp" ng-app="angularjs-starter">
+<body id="head" ng-app="angApp">
    <div class="conteiner">
         <section class="header" >
           <div class="logotip">
@@ -61,9 +61,11 @@
                 </div>
            </div>
         </section>
-        
-       <ui-view></ui-view>
-        
+        <div  ng-controller="LoremRepeatController">
+<div class="serverLorem">
+    <ui-view></ui-view>
+</div>
+</div>
         <div class="popup">
                <div class="popup_bg"></div>
                <div class="form">
@@ -78,7 +80,7 @@
                    </form>
                </div>
            </div>
-        <footer class="footer" ng-controller="MainCtrl">  
+        <footer class="footer">  
           <div class="menu">
              <div class="logotips">
                  <span class="logo"></span>
@@ -94,12 +96,12 @@
                 </ul>
                 </div>
             </div>
-            <div ng-bind-html="content"></div>
         </footer>
     </div>
-  <script src="app.js"></script>
   <script src="js/all.min.js"></script>
   <script src="js/angular-sanitize.min.js"></script>
+  <script src="./app.js"></script>
+  <script src="./controllers/LoremRepeatController.js"></script>
   <script src="js/fonts.js"></script>
   <script>loadFont('ProximaNova', 'css/woff.css', 'css/woff2.css')</script>
   <script>loadFont('Raleway', 'css/woff.css', 'css/woff2.css')</script>

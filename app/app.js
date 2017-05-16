@@ -1,5 +1,13 @@
-let routerApp = angular.module('routerApp', ['ui.router']);
-routerApp.config(function($stateProvider, $urlRouterProvider) {
+/*
+let app = angular.module('angularjs-starter', ["ngSanitize"]);
+
+app.controller('MainCtrl', function($scope) {
+  $scope.name = 'World';
+  $scope.content = "<b>this is bold content</b><p>with a <u>paragraph</u></p>";
+});*/
+
+var questApp = angular.module('angApp', ['ui.router']);
+questApp.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('wew', {
             url: '/wew',
@@ -14,11 +22,4 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'pages/about.html'
         });
     $urlRouterProvider.otherwise('/home');
-});
-
-let app = angular.module('angularjs-starter', ["ngSanitize"]);
-
-app.controller('MainCtrl', function($scope) {
-  $scope.name = 'World';
-  $scope.content = "<b>this is bold content</b><p>with a <u>paragraph</u></p>";
 });
